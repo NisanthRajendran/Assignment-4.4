@@ -1,0 +1,32 @@
+Explain the importance and usage of the below terms in details
+           DFSInputStream:
+                  *This class helps to read from HDFS.
+                  *It handles the communication of namenode with various datanodes.
+                  *Integrity of data in blocks is handled.
+                  *It manages data read activity incase of datanode failure.
+                  *It is called internally by FSDataInputStream
+                  *DFSInputStream is used by FSDataInputStream to manage namenode and datanodes.
+                  
+           DFSOutputStream:
+                  *This class helps in writing Data to HDFS.
+                  *Handles communication  between namenode with various datanodes.
+                  *Called internally by FSDataOutputStream.
+                  *DFSOutputStream is used by FSDataOutputStream to manage namenode and datanodes.
+                  *DFS splits data into packets  amd writes it in a internal queue called data queue and also maintains an internal queue called ack queue.
+                  
+          FSDataInputStream:
+                  *FSDataInputStream Provides stream (channel) for reading data.
+                  *The Distributed File System returns an FSDataInputStream to the client to read it from data
+                  *FSdataInputStream uses DFSInputStream to manage datanode and namenode.
+                  *The client calls read() on the stream FSDataInputStream.
+                  *When the client finished reading,it calls close() on FSDataInputStream.
+                  
+          FSDataOutputStream:
+                  * Provides stream (channel) for writing data.
+                  * The Distributed File System returns an FSdataOutputStream for the client to start writing data.
+                  * FSdataOutputStream uses DFSoutputStream which handles communication betwen datanodes and namenode.
+                  * Client signals write() method on FSDataOutputStream.
+                  *When the client has finished writing data,it calls close() on FSDataOutputStream.
+        
+                    
+                        
